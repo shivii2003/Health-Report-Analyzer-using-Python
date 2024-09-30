@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Your Website Name</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+
+        .card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 20px auto;
+            max-width: 800px;
+            padding: 20px;
+            transition: transform 0.5s ease;
+            cursor: pointer;
+        }
+
+        .card:hover {
+            transform: scale(1.05) rotate(3deg);
+        }
+
+        header,
+        footer {
+            background-color: #4e54c8;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        section {
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        h2 {
+            border-bottom: 2px solid black;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background-color: black;
+            transition: width 0.3s ease-in-out;
+        }
+
+        h2:hover::after {
+            width: 100%;
+            left: 0;
+        }
+
+        p {
+            transition: color 0.3s ease-in-out;
+        }
+
+        p:hover {
+            color: #FF5733;
+        }
+    </style>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+
+<body>
+    <div class="unique-toolbar">
+        <ul>
+            <li><a href="/home">Home</a></li>
+            <li><a href="/check_report">Check Report</a></li>
+            <li><a href='/services'>Services</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/help">Help</a></li>
+        </ul>
+
+    </div>
+    <div class="card">
+        <header>
+            <h1>About Us</h1>
+        </header>
+        <section>
+            <h2>Our Mission</h2>
+            <p>At Report Analysis System, our mission is to enhance lives by leveraging the power of technology and
+                data-driven
+                insights. We strive to bridge the gap between individuals and healthcare information, making health
+                assessment more accessible, accurate, and actionable for everyone.</p>
+        </section>
+    </div>
+    <div class="card">
+        <section>
+            <h2>What We Do</h2>
+            <p>We specialize in analyzing health data to identify potential illnesses and health risks. Our advanced
+                algorithms sift through vast amounts of information to provide users with comprehensive reports that
+                offer insights into their current health status.</p>
+        </section>
+    </div>
+    <div class="card">
+        <section>
+            <h2>Our Team</h2>
+            <p>Behind Report Analysis System is a team of dedicated professionals passionate about healthcare and
+                technology.
+                Our diverse team brings together expertise from various fields, including data science, medicine, and
+                software development, to create a platform that truly makes a difference in people's lives.</p>
+        </section>
+    </div>
+    <div class="card">
+        <section>
+            <h2>Privacy and Security</h2>
+            <p>At Report Analysis System, we understand the importance of privacy and security when it comes to personal
+                health
+                information. We adhere to the highest standards of data protection and encryption to ensure that our
+                users' information remains confidential and secure at all times.</p>
+        </section>
+    </div>
+    <div class="card">
+        <section>
+            <h2>Get in Touch</h2>
+            <p>Have questions or feedback? We'd love to hear from you! Feel free to reach out to us through our contact
+                page or connect with us on social media. Your input helps us continually improve and innovate to better
+                serve your healthcare needs.</p>
+        </section>
+    </div>
+    <footer>
+        <p>Report Analysis System. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>

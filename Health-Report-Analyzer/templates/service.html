@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            /* background-color: #8f94fb; */
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            margin: 20px;
+            width: 300px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .card:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.4);
+        }
+
+        .card img {
+            width: 80%;
+            height: 80%;
+            object-fit: cover;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .card-content {
+            padding: 20px;
+        }
+
+        .card-content h2 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .card-content p {
+            margin: 0;
+            color: #666;
+        }
+
+        .button {
+            display: block;
+            width: 100%;
+            padding: 10px 0;
+            background-color: #4CAF50;
+            color: #fff;
+            text-align: center;
+            text-decoration: none;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #45a049;
+        }
+
+        img {
+            height: 1000px;
+        }
+    </style>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+
+<body>
+    <div class="unique-toolbar">
+        <ul>
+            <li><a href="/home">Home</a></li>
+            <li><a href="/check_report">Check Report</a></li>
+            <li><a href='/services'>Services</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/help">Help</a></li>
+        </ul>
+
+    </div>
+    <div class="container">
+        <div class="card">
+            <img src="../static/hospital-buildings.png" alt="Nearby Hospitals">
+            <div class="card-content">
+                <h2>Nearby Hospitals</h2>
+                <p>Find hospitals near your location.</p>
+                <a href="#" class="button">Explore</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="../static/health-care.png" alt="Medical Suggestion">
+            <div class="card-content">
+                <h2>Medical Suggestion</h2>
+                <p>Get personalized medical suggestions.</p>
+                <a href="#" class="button">Get Suggestions</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="../static/diet.png" alt="Diet Suggestion">
+            <div class="card-content">
+                <h2>Diet Suggestion</h2>
+                <p>Receive customized diet plans.</p>
+                <a href="#" class="button">Get Diet Plan</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="../static/customer-support.png" alt="Online Consultancy">
+            <div class="card-content">
+                <h2>Online Consultancy</h2>
+                <p>Book online consultations with doctors.</p>
+                <a href="#" class="button">Book Consultation</a>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>Report Analysis System. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>

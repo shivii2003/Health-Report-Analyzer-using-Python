@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Toolbar Example</title>
+  <link rel="stylesheet" href="../static/style.css">
+  <style>
+    .container {
+      text-align: left;
+      /* Align content to the left */
+      max-width: 600px;
+      /* Limit container width */
+      padding: 0 20px;
+      /* Add some padding */
+    }
+
+    h1 {
+      color: #8f94fb;
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #8f94fb;
+      /* Green color, you can change it */
+      color: white;
+      text-decoration: none;
+      border: none;
+      border-radius: 5px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .button:hover {
+      background-color: #45a049;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
+      font-size: 21px;
+      /* Darker green on hover */
+    }
+
+    /* Footer Styles */
+  </style>
+</head>
+
+<body>
+
+  <div class="unique-toolbar">
+    <ul>
+      <li><a href="/home">Home</a></li>
+      <li><a href="/check_report">Check Report</a></li>
+      <li><a href='/services'>Services</a></li>
+      <li><a href="/contact">Contact</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/help">Help</a></li>
+    </ul>
+
+  </div>
+  <table>
+    <tr>
+      <th>
+        <div class="container">
+          <h1 style="margin-left: 60px;">Check Your Disease By Report Analysis System</h1>
+          <a href="/check_report" class="button" style="margin-left: 60px;">Click Here</a>
+        </div>
+      </th>
+      <th><img src="../static/health-check.png" height="400px" width="400px"
+          style="margin-top: 50px; margin-left: 220px;"></th>
+
+    </tr>
+  </table>
+  <br>
+  <br><br><br>
+  <footer>
+    <p>Report Analysis System. All rights reserved.</p>
+  </footer>
+</body>
+
+</html>

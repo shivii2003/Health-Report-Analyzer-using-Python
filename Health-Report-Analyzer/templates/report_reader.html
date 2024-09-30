@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Report Generator</title>
+    <link rel="stylesheet" href="../static/style_reader.css">
+    <link rel="stylesheet" href="../static/style.css">
+    <style>
+        /* Add your custom CSS here */
+        /* Pop-up overlay */
+        .popup-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            /* Semi-transparent background */
+            z-index: 1000;
+            animation: fadeIn 0.3s ease;
+        }
+
+        /* Pop-up content */
+        .popup-content {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #3498db;
+            /* Blue background */
+            padding: 20px;
+            border-radius: 15px;
+            /* Increased border-radius */
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+            z-index: 1001;
+            animation: slideIn 0.3s ease;
+            height: auto;
+            /* Initially set height to auto */
+            overflow: auto;
+            /* Enable scrolling if content overflows */
+            text-align: center;
+
+        }
+
+        .popup-content h2 {
+            color: #fff;
+            /* White text color */
+            margin-bottom: 20px;
+            /* Increased margin bottom */
+            font-size: 30px;
+        }
+
+        .close-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 20px;
+            color: #fff;
+            /* White text color */
+            cursor: pointer;
+        }
+
+        .ok-button {
+            display: none;
+            /* Initially hide OK button */
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            /* Increased padding */
+            border: none;
+            border-radius: 5px;
+            background-color: #fff;
+            /* White background */
+            color: #3498db;
+            /* Blue text color */
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            /* Add transition effect */
+        }
+
+        .ok-button:hover {
+            background-color: #f0f0f0;
+            /* Light gray background on hover */
+        }
+
+        .loader {
+            border: 6px solid #f3f3f3;
+            border-top: 6px solid #3498db;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 2s linear infinite;
+            margin: auto;
+        }
+
+        .suggestions {
+            display: inline;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .suggestions a {
+            /* margin-top: 100px; */
+            /* Add margin between buttons */
+            padding: 10px;
+            background-color: #fff;
+            border: 2px solid #3498db;
+            border-radius: 5px;
+            color: #3498db;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .suggestions a:hover {
+            background-color: #f0f0f0;
+        }
+
+
+        /* Reddish gradient animation */
+        @keyframes redGradient {
+            0% {
+                background-color: #3498db;
+            }
+
+            100% {
+                background-color: #e74c3c;
+                /* Reddish color */
+            }
+        }
+
+        /* Greenish gradient animation */
+        @keyframes greenGradient {
+            0% {
+                background-color: #3498db;
+            }
+
+            100% {
+                background-color: #2ecc71;
+                /* Greenish color */
+            }
+        }
+
+        /* Fade in animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Slide in animation */
+        @keyframes slideIn {
+            from {
+                transform: translate(-50%, -70%);
+                /* Start from above */
+            }
+
+            to {
+                transform: translate(-50%, -50%);
+                /* Centered */
+            }
+        }
+
+        /* Spin animation for loader */
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="unique-toolbar">
+        <ul>
+            <li><a href="/home">Home</a></li>
+            <li><a href="/check_report">Check Report</a></li>
+            <li><a href='/services'>Services</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/help">Help</a></li>
+        </ul>
+
+    </div>
+    <div class="container">
+        <h1>Health Report Generator</h1>
+        <center>
+            <div class="tabs">
+                <button id="analyserTab" class="tablink" onclick="openTab('analyser')">Health Report Analyser</button>
+                <button id="scanTab" class="tablink" onclick="openTab('scan')">Scan X-Ray</button>
+                <button id="aboutTab" class="tablink" onclick="openTab('about')">About</button>
+            </div>
+        </center>
+        <center>
+            <div id="analyser" class="tabcontent">
+                <h2>Upload Health Report</h2><br>
+                <input type="file" id="reportInput" accept="image/*"><br><br>
+                <button onclick="submitReport()">Analyse Report</button>
+            </div>
+        </center>
+        <center>
+            <div id="scan" class="tabcontent">
+                <h2>knee correlation</h2>
+                 <p style="font-size: 24px;">coming soon.......</p>
+                
+                
+
+            </div>
+        </center>
+
+        <div id="about" class="tabcontent">
+            <h2>About</h2>
+            <p>This is a health report generator website designed for predicting if a person has diabetes or not based
+                on their health report image.</p>
+        </div>
+    </div>
+    <footer>
+        <p>Report Analysis System. All rights reserved.</p>
+    </footer>
+
+    <!-- Pop-up overlay -->
+    <div id="popupOverlay" class="popup-overlay"></div>
+
+    <!-- Pop-up content -->
+    <div id="popupContent" class="popup-content">
+        <span class="close-button" onclick="closePopup()">&times;</span>
+        <h2>Report Result</h2>
+        <div id="loading" style="display: none;">
+            <div class="loader"></div>
+            <p>Analysing person's report...</p>
+        </div>
+        <div id="predictionResult" style="text-align: center;"></div>
+        <div id="suggestions" style="display: none;">
+            <div class="suggestions">
+                <h2>Suggestions</h2><br>
+                <div>
+                    <a href="https://www.supremehospital.in/" target="_blank" rel="noreferrer noopener">Nearby
+                        Hospital</a>
+                    <a href="https://www.niddk.nih.gov/health-information/diabetes/overview/managing-diabetes/4-steps"
+                        target="_blank" rel="noreferrer noopener">Medical Suggestion</a>
+                    <a href="https://www.mayoclinic.org/diseases-conditions/diabetes/in-depth/diabetes-diet/art-20044295"
+                        target="_blank" rel="noreferrer noopener">Diet Suggestion</a>
+                </div>
+                <br><br>
+                <div>
+                    <a href="https://diabetesmantra.com/faridabad/diabetes-doctor/" target="_blank"
+                        rel="noreferrer noopener">Book Online Consultancy</a>
+                    <a href="https://www.example.com" target="_blank" rel="noreferrer noopener">Another Suggestion</a>
+                </div>
+            </div>
+        </div>
+        <button id="okButton" class="ok-button" onclick="closePopup()">OK</button>
+    </div>
+
+    <script>
+        function closePopup() {
+            const overlay = document.getElementById('popupOverlay');
+            const content = document.getElementById('popupContent');
+            overlay.style.display = 'none';
+            content.style.display = 'none';
+
+            // Reset any necessary elements here
+            document.getElementById('loading').style.display = 'none'; // Hide loading animation
+            document.getElementById('predictionResult').innerText = ''; // Clear prediction result
+            document.getElementById('suggestions').style.display = 'none'; // Hide suggestions
+            document.getElementById('popupContent').style.height = 'auto'; // Reset popup height
+            document.getElementById('okButton').style.display = 'none'; // Hide OK button
+        }
+
+        function submitReport() {
+            const fileInput = document.getElementById('reportInput');
+            const file = fileInput.files[0];
+            if (!file) {
+                alert("Please select a file.");
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append('report', file);
+
+            const loadingDiv = document.getElementById('loading');
+            loadingDiv.style.display = 'block';
+
+            const popupContent = document.getElementById('popupContent');
+            popupContent.style.display = 'block'; // Show popup
+            loadingDiv.style.display = 'block'; // Show loading animation
+
+            // Hide OK button while analyzing report
+            document.getElementById('okButton').style.display = 'none';
+
+            fetch('/predict', {
+                method: 'POST',
+                body: formData
+            })
+                .then(response => response.json())
+                .then(data => {
+                    const predictionResultDiv = document.getElementById('predictionResult');
+                    if (data.prediction == "Patient Has Diabetes") {
+                        predictionResultDiv.innerText = data.prediction;
+
+                        // Increase height of popup content by 100px
+                        const popupContent = document.getElementById('popupContent');
+                        popupContent.style.height = (popupContent.offsetHeight + 100) + 'px';
+
+                        // Show suggestions
+                        document.getElementById('suggestions').style.display = 'block';
+
+                        // Show OK button after result is received
+                        document.getElementById('okButton').style.display = 'block';
+
+                        // Hide "Patient Doesn't have Diabetes" message
+                        document.getElementById('noDiabetes').style.display = 'none';
+                        document.getElementById('suggestions').style.width = '500px';
+                        document.getElementById('predictionResult').style.textAlign = 'center';
+
+                        // Add reddish gradient animation
+                        popupContent.style.animation = 'redGradient 1s forwards';
+                    }
+                    else if (data.prediction == "Patient Does Not have Diabetes") {
+                        predictionResultDiv.innerText = data.prediction;
+
+                        // Show OK button after result is received  
+                        const popupContent = document.getElementById('popupContent');
+                        popupContent.style.height = (popupContent.offsetHeight + -90) + 'px';
+
+                        document.getElementById('okButton').style.display = 'block';
+
+                        // Hide "Patient Doesn't have Diabetes" message
+                        document.getElementById('noDiabetes').style.display = 'none';
+
+                        // Add greenish gradient animation
+                        popupContent.style.animation = 'greenGradient 1s forwards';
+                    }
+                    else {
+                        alert(data.error);
+                    }
+                    loadingDiv.style.display = 'none'; // Hide loading animation after result is received
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    loadingDiv.style.display = 'none'; // Hide loading animation on error
+                });
+        }
+
+        function openPopup() {
+            const overlay = document.getElementById('popupOverlay');
+            const content = document.getElementById('popupContent');
+            overlay.style.display = 'block';
+            content.style.display = 'block';
+        }
+
+        function openTab(tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            document.getElementById(tabName).style.display = "block";
+
+            // Add animation for tab change
+            document.getElementById(tabName).classList.add('fade-in');
+        }
+    </script>
+</body>
+
+</html>

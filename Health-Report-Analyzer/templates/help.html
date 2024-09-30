@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+            max-width: 800px;
+            /* Increased width */
+            width: 100%;
+            animation: fade-in 1s ease-out;
+            margin: 20px;
+            transition: transform 0.3s ease;
+
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        @keyframes fade-in {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            background-color: #4e54c8;
+            color: #fff;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            padding: 20px 0;
+        }
+
+        .instruction-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .instruction-item {
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+        }
+
+        .instruction-item:hover {
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+            transform: translateY(-5px);
+            border: 2px solid blueviolet;
+        }
+
+
+
+        .instruction-item p {
+            margin: 10px;
+            line-height: 1.6;
+            font-size: 18px;
+            /* Increased font size */
+            text-align: left;
+
+        }
+    </style>
+    <link rel="stylesheet" href="../static/style.css">
+    <style>
+        body {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="unique-toolbar">
+        <ul>
+            <li><a href="/home">Home</a></li>
+            <li><a href="/check_report">Check Report</a></li>
+            <li><a href='/services'>Services</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/help">Help</a></li>
+        </ul>
+
+    </div>
+    <center>
+        <div class="card">
+            <header>
+                <h1>Instructions</h1>
+            </header>
+            <ul class="instruction-list">
+                <li class="instruction-item">
+                    <p> <strong>1.</strong> Take a clear picture of your health report ensuring all details, such as
+                        text and graphs, are
+                        visible and legible.</p>
+                </li>
+                <li class="instruction-item">
+                    <p> <strong>2.</strong> Open your web browser and navigate to our website by entering the URL in the
+                        address bar.</p>
+                </li>
+                <li class="instruction-item">
+                    <p> <strong>3.</strong> Once on our website, click on the "Check Report" tab located in the
+                        navigation menu to
+                        proceed.
+                    </p>
+                </li>
+                <li class="instruction-item">
+                    <p> <strong>4.</strong> After accessing the "Check Report" tab, locate and click on the "Upload
+                        Report" button to
+                        initiate
+                        the process.</p>
+                </li>
+                <li class="instruction-item">
+                    <p> <strong>5.</strong> Once you've uploaded your health report, press the "Analyze Report" button
+                        and patiently wait
+                        for
+                        the analysis to complete.</p>
+                </li>
+            </ul>
+        </div>
+        <br>
+    </center>
+    <br>
+    <footer>
+        <p>Report Analysis System. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>
